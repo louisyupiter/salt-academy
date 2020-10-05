@@ -2,16 +2,16 @@ name: "Unit testing"
 on: [pull_request, push]
 
 jobs:
-  check_pr:
+  checkout:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-
+  install:
     - name: "npm ci"
       run: npm ci
-
+  build:
     - name: "npm run build"
       run: npm run build
-
+  test:
     - name: "npm run test"
       run: npm run test
