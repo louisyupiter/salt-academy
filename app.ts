@@ -3,9 +3,9 @@ import * as bodyParser from 'body-parser';
 
 class App {
   public app: express.Application;
-  public port: number;
+  public port: number | string;
 
-  constructor(controllers: any[], port: number) {
+  constructor(controllers: any[], port: number | string) {
     this.app = express();
     this.port = port;
 

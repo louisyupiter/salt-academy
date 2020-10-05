@@ -2,6 +2,8 @@ import App from '../app';
 import AuthController from './controllers/AuthController';
 import PostController from './controllers/PostController';
 import UserController from './controllers/UserController';
+require('dotenv').config()
+
 
 const app = new App(
   [
@@ -9,7 +11,7 @@ const app = new App(
     new AuthController(),
     new PostController(),
   ],
-  5000,
+  process.env.PORT || 3000
 );
 
 app.listen();
