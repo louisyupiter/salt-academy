@@ -1,4 +1,4 @@
-import App from '../app';
+import App from './app';
 import AuthController from './controllers/AuthController';
 import PostController from './controllers/PostController';
 import UserController from './controllers/UserController';

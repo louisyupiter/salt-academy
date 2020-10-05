@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "start": "nodemon src/server.ts",
     "test": "jest",
     "test-js": "test-js config:init"
