@@ -20,7 +20,7 @@ class PostModel {
 
   create(id: number, authorId: number, name: string) {
     this.posts.push({ id: id, authorId: authorId, name: name });
-    return true;
+    return false;
   }
 
   update(id: number, name: string, authorId: number) {
