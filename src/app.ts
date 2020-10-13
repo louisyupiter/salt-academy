@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import * as bodyParser from 'body-parser';
+var cors = require('cors')
 
 class App {
   public app: express.Application;
@@ -9,12 +10,18 @@ class App {
     this.app = express();
     this.port = port;
 
+    //options for cors midddleware
+
     this.initializeMiddlewares();
     this.initializeControllers(controllers);
   }
 
   private initializeMiddlewares() {
     this.app.use(bodyParser.json());
+    var corsOptions = {
+      origin: 'http://localhost:4200',
+    }
+    this.app.use(cors(corsOptions));
   }
 
   private initializeControllers(controllers: any[]) {

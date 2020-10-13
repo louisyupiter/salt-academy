@@ -5,6 +5,7 @@ class UserModel {
     { id: 2, name: "Hello", password: "456", role: "user" },
     { id: 3, name: "Annie", password: "321", role: "user" },
     { id: 4, name: "Don", password: "don123", role: "admin" },
+    { id: 5, name: "Budi", password: "budi1234", role: "user" },
   ];
 
   private constructor() {
