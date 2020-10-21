@@ -1,10 +1,14 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import * as bodyParser from 'body-parser';
-var cors = require('cors')
+const cors = require('cors')
+import * as path from 'path';
+import * as http from 'http';
 
 class App {
   public app: express.Application;
   public port: number | string;
+  private server: http.Server | undefined;
+
 
   constructor(controllers: any[], port: number | string) {
     this.app = express();
@@ -15,23 +19,21 @@ class App {
     this.initializeMiddlewares();
     this.initializeControllers(controllers);
   }
-
   private initializeMiddlewares() {
     this.app.use(bodyParser.json());
-    var corsOptions = {
+    const corsOptions = {
       origin: 'http://localhost:4200',
     }
     this.app.use(cors(corsOptions));
   }
-
   private initializeControllers(controllers: any[]) {
+    this.app.use('/images', express.static(path.join(__dirname, 'public')))
     controllers.forEach((controller) => {
       this.app.use('/', controller.router);
     });
   }
-
   public listen() {
-    this.app.listen(this.port, () => {
+    this.server = this.app.listen(this.port, () => {
       console.log(`App listening on the port ${this.port}`);
     });
   }
