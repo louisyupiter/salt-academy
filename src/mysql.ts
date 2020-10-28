@@ -1,4 +1,5 @@
 import * as mysql from 'mysql';
+require('dotenv').config();
 
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
